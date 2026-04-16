@@ -1,58 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<title>Login</title>
+<html>
+<body style="background:#0f172a;color:white;text-align:center;padding:50px;">
+<h2>Login</h2>
 
-<style>
-body {
-    background: #0f172a;
-    font-family: Arial;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+<form method="POST">
+<input name="usuario" placeholder="Usuario"><br><br>
+<input name="password" type="password" placeholder="Password"><br><br>
+<button>Entrar</button>
+</form>
 
-.box {
-    background: white;
-    color: black;
-    padding: 30px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-input {
-    padding: 8px;
-    margin: 10px;
-    width: 200px;
-}
-
-button {
-    padding: 10px;
-    background: #2563eb;
-    color: white;
-    border: none;
-}
-</style>
-</head>
-
-<body>
-
-<div class="box">
-    <h2>Login</h2>
-
-    <form method="POST">
-        <input type="text" name="usuario" placeholder="Usuario" required><br>
-        <input type="password" name="password" placeholder="Contraseña" required><br>
-        <button type="submit">Entrar</button>
-    </form>
-
-    {% if error %}
-        <p style="color:red;">{{ error }}</p>
-    {% endif %}
-</div>
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
 
 </body>
 </html>
