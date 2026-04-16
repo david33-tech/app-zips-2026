@@ -7,29 +7,38 @@
 body {
     margin: 0;
     font-family: Segoe UI;
-    background: #0f172a;
 }
 
-/* HEADER */
+/* SPLASH */
+#splash {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+#splash img {
+    width: 300px;
+}
+
+/* APP OCULTA */
+#app {
+    display: none;
+}
+
+/* TU DISEÑO */
 .header {
     background: #020617;
     color: white;
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
-.btn-salir {
-    background: #dc2626;
-    border: none;
-    color: white;
-    padding: 6px 12px;
-    cursor: pointer;
-    border-radius: 6px;
-}
-
-/* CONTENEDOR */
 .container {
     width: 90%;
     max-width: 1100px;
@@ -39,74 +48,25 @@ body {
     border-radius: 12px;
 }
 
-/* FILAS */
-.row {
-    margin-bottom: 15px;
-}
-
-input {
-    width: 70%;
-    padding: 8px;
-}
-
-/* BOTONES */
-button {
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 6px;
-    border: none;
-}
-
-.main-btn {
-    background: #2563eb;
-    color: white;
-}
-
-.cancel-btn {
-    background: #ea580c;
-    color: white;
-}
-
-/* INFO */
-#info {
-    margin-top: 10px;
-}
-
-/* BARRA */
-.barra-container {
-    width: 100%;
-    background: #ddd;
-    height: 18px;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-.barra {
-    height: 100%;
-    width: 0%;
-    background: #2563eb;
-    border-radius: 10px;
-}
-
-/* LOG */
-#log {
-    margin-top: 15px;
-    background: #020617;
-    color: #22c55e;
-    height: 220px;
-    overflow-y: auto;
-    padding: 10px;
-    font-family: Consolas;
-    border-radius: 8px;
+body {
+    background: #0f172a;
 }
 </style>
 </head>
 
 <body>
 
+<!-- SPLASH -->
+<div id="splash">
+    <img src="/static/logo.png">
+</div>
+
+<!-- APP -->
+<div id="app">
+
 <div class="header">
     <div>📊 Integrador USSACP</div>
-    <a href="/logout"><button class="btn-salir">Salir</button></a>
+    <a href="/logout"><button>Salir</button></a>
 </div>
 
 <div class="container">
@@ -115,33 +75,27 @@ button {
 
 <form action="/procesar" method="post" enctype="multipart/form-data">
 
-<div class="row">
-<b>1. Excel</b><br>
+<p>Excel</p>
 <input type="file" name="excel" required>
-</div>
 
-<div class="row">
-<b>2. Carpeta ZIPs</b><br>
+<p>Carpeta ZIPs</p>
 <input type="file" name="zips" webkitdirectory directory multiple required>
-</div>
 
-<button class="main-btn">▶ Procesar</button>
+<br><br>
+<button>Procesar</button>
 
 </form>
 
-<div id="info">
-    <div>Estado: listo</div>
-</div>
-
-<div class="barra-container">
-    <div class="barra"></div>
-</div>
-
-<div id="log">
-Sistema listo...
 </div>
 
 </div>
+
+<script>
+setTimeout(() => {
+    document.getElementById("splash").style.display = "none";
+    document.getElementById("app").style.display = "block";
+}, 3000); // 3 segundos
+</script>
 
 </body>
 </html>
