@@ -1,21 +1,147 @@
 <!DOCTYPE html>
-<html>
-<body style="background:#0f172a;color:white;text-align:center;padding:50px;">
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 
-<a href="/logout"><button>Salir</button></a>
+<style>
+body {
+    margin: 0;
+    font-family: Segoe UI;
+    background: #0f172a;
+}
 
-<h2>Subir archivos</h2>
+/* HEADER */
+.header {
+    background: #020617;
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-salir {
+    background: #dc2626;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* CONTENEDOR */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+/* FILAS */
+.row {
+    margin-bottom: 15px;
+}
+
+input {
+    width: 70%;
+    padding: 8px;
+}
+
+/* BOTONES */
+button {
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+}
+
+.main-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.cancel-btn {
+    background: #ea580c;
+    color: white;
+}
+
+/* INFO */
+#info {
+    margin-top: 10px;
+}
+
+/* BARRA */
+.barra-container {
+    width: 100%;
+    background: #ddd;
+    height: 18px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.barra {
+    height: 100%;
+    width: 0%;
+    background: #2563eb;
+    border-radius: 10px;
+}
+
+/* LOG */
+#log {
+    margin-top: 15px;
+    background: #020617;
+    color: #22c55e;
+    height: 220px;
+    overflow-y: auto;
+    padding: 10px;
+    font-family: Consolas;
+    border-radius: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div>📊 Integrador USSACP</div>
+    <a href="/logout"><button class="btn-salir">Salir</button></a>
+</div>
+
+<div class="container">
+
+<h2>Extractor de ZIPs → Carpetas</h2>
 
 <form action="/procesar" method="post" enctype="multipart/form-data">
-<p>Excel</p>
+
+<div class="row">
+<b>1. Excel</b><br>
 <input type="file" name="excel" required>
+</div>
 
-<p>Carpeta ZIPs</p>
+<div class="row">
+<b>2. Carpeta ZIPs</b><br>
 <input type="file" name="zips" webkitdirectory directory multiple required>
+</div>
 
-<br><br>
-<button>Procesar</button>
+<button class="main-btn">▶ Procesar</button>
+
 </form>
+
+<div id="info">
+    <div>Estado: listo</div>
+</div>
+
+<div class="barra-container">
+    <div class="barra"></div>
+</div>
+
+<div id="log">
+Sistema listo...
+</div>
+
+</div>
 
 </body>
 </html>
